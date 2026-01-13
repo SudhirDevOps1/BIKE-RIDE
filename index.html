@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏍️ Hero बाइक चलाना सीखें - Zero to Pro Complete Guide</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .gradient-header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+        }
+
+        .card-dark {
+            background: linear-gradient(145deg, #1e1e2e 0%, #252540 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .pulse-icon {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.8;
+            }
+        }
+
+        .bike-animation {
+            animation: ride 2s ease-in-out infinite;
+        }
+
+        @keyframes ride {
+
+            0%,
+            100% {
+                transform: translateX(0) rotate(0deg);
+            }
+
+            25% {
+                transform: translateX(15px) rotate(2deg);
+            }
+
+            75% {
+                transform: translateX(-5px) rotate(-1deg);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .glow-red {
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.5);
+        }
+
+        .glow-green {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+        }
+
+        .glow-orange {
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.5);
+        }
+
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px currentColor;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, #22c55e 0%, #eab308 50%, #ef4444 100%);
+        }
+
+        .bike-parts-diagram {
+            position: relative;
+        }
+
+        .hotspot {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: rgba(239, 68, 68, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+            animation: hotspot-pulse 2s infinite;
+        }
+
+        @keyframes hotspot-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+            }
+        }
+
+        .gear-indicator {
+            transition: all 0.3s ease;
+        }
+
+        .gear-indicator.active {
+            transform: scale(1.3);
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        .timeline-line {
+            background: linear-gradient(180deg, #22c55e, #eab308, #f97316, #ef4444);
+        }
+
+        .control-visual {
+            background: linear-gradient(145deg, #2d2d3d 0%, #1a1a2a 100%);
+            border: 2px solid #444;
+        }
+
+        .handlebar {
+            background: linear-gradient(90deg, #333 0%, #555 50%, #333 100%);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 20px;
+            border-radius: 10px;
+            background: #333;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ef4444;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .speedometer {
+            background: conic-gradient(from 180deg, #22c55e 0%, #eab308 25%, #f97316 50%, #ef4444 75%, #7f1d1d 100%);
+        }
+
+        .scroll-indicator {
+            animation: scroll-bounce 2s infinite;
+        }
+
+        @keyframes scroll-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(10px);
+            }
+        }
+
+        .chapter-nav {
+            scrollbar-width: none;
+        }
+
+        .chapter-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* New Simulator Styles */
+        .parts-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .parts-image {
+            width: 100%;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .part-hotspot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: rgba(239, 68, 68, 0.6);
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .part-hotspot:hover {
+            background: #ef4444;
+            transform: translate(-50%, -50%) scale(1.5);
+            z-index: 20;
+        }
+
+        .part-tooltip {
+            position: absolute;
+            bottom: 140%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .part-hotspot:hover .part-tooltip {
+            opacity: 1;
+            bottom: 160%;
+        }
+
+        .sim-container {
+            background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+            border: 2px solid #2d2d3d;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .speed-needle {
+            transition: transform 0.1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            transform-origin: bottom center;
+        }
+
+        .clutch-vibration {
+            animation: shake 0.1s infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+
+        .gear-active {
+            filter: drop-shadow(0 0 10px #ef4444);
+            border-color: #ef4444 !important;
+        }
+
+        /* Simulator UX Enhancements */
+        .biting-point-zone {
+            position: absolute;
+            height: 100%;
+            background: rgba(34, 197, 94, 0.4);
+            /* green-500 */
+            pointer-events: none;
+            border-radius: 9999px;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .sim-hint {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sim-hint.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vibration {
+            animation: vibrate 0.1s linear infinite;
+        }
+
+        @keyframes vibrate {
+            0% {
+                transform: translate(0);
+            }
+
+            25% {
+                transform: translate(2px, 2px);
+            }
+
+            50% {
+                transform: translate(-2px, 2px);
+            }
+
+            75% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(-2px, -2px);
+            }
+        }
+
+        /* Popup Notification System */
+        .popup {
+            background: rgba(25, 25, 45, 0.9);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #ef4444;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateX(120%);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-width: 300px;
+        }
+
+        .popup.show {
+            transform: translateX(0);
+        }
+
+        .popup-icon {
+            font-size: 1.5rem;
+        }
+
+        .popup-content h4 {
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .popup-content p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @media print {
+
+            .chapter-nav,
+            #print-btn,
+            #popup-container,
+            #simulator,
+            #quiz {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .card-dark,
+            .glass-effect {
+                background: white !important;
+                border: 1px solid #ddd !important;
+                box-shadow: none !important;
+                color: black !important;
+                break-inside: avoid;
+            }
+
+            h2,
+            h3,
+            h4 {
+                color: black !important;
+            }
+
+            p,
+            span {
+                color: #333 !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="text-gray-100">
+    <!-- Popup Container -->
+    <div id="popup-container" class="fixed top-5 right-5 z-[100] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Hero Header -->
+    <header class="gradient-header text-white py-12 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 text-9xl">🏍️</div>
+            <div class="absolute bottom-10 right-10 text-9xl">🏍️</div>
+        </div>
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <div class="text-8xl mb-6 bike-animation">🏍️</div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-glow">Hero बाइक चलाना सीखें</h1>
+            <p class="text-2xl font-semibold opacity-95">Zero से Pro तक - Complete Guide</p>
+            <div class="flex flex-wrap justify-center gap-3 mt-6">
+                <span class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Splendor</span>
+                <span class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">HF Deluxe</span>
+                <span class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Passion Pro</span>
+                <span class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Glamour</span>
+                <span class="bg-white/20 backdrop-blur px-4 py-2 rounded-full text-sm font-medium">Xtreme</span>
+            </div>
+            <div class="mt-8 flex flex-col items-center">
+                <span class="bg-yellow-500/30 border border-yellow-400 text-yellow-200 px-6 py-3 rounded-xl text-lg">
+                    📍 खाली मैदान (Empty Ground) में प्रैक्टिस करें - No Traffic!
+                </span>
+            </div>
+            <div class="mt-8 scroll-indicator">
+                <span class="text-3xl">👇</span>
+                <p class="text-sm opacity-70">Scroll करें</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress & Navigation -->
+    <div class="glass-effect sticky top-0 z-50 py-4">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📚</span>
+                    <span class="text-lg font-bold text-white">Complete Learning Path</span>
+                </div>
+                <div class="chapter-nav flex gap-2 overflow-x-auto pb-2 md:pb-0">
+                    <button onclick="scrollToSection('intro')"
+                        class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">🎯
+                        शुरुआत</button>
+                    <button onclick="scrollToSection('parts')"
+                        class="bg-purple-700 hover:bg-purple-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">🔧
+                        पार्ट्स</button>
+                    <button onclick="scrollToSection('step1')"
+                        class="bg-red-700 hover:bg-red-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">1️⃣
+                        स्टार्ट</button>
+                    <button onclick="scrollToSection('step2')"
+                        class="bg-orange-700 hover:bg-orange-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">2️⃣
+                        चलाना</button>
+                    <button onclick="scrollToSection('step3')"
+                        class="bg-yellow-700 hover:bg-yellow-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">3️⃣
+                        गियर</button>
+                    <button onclick="scrollToSection('step4')"
+                        class="bg-green-700 hover:bg-green-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">4️⃣
+                        रुकना</button>
+                    <button onclick="scrollToSection('pro')"
+                        class="bg-blue-700 hover:bg-blue-600 px-4 py-2 rounded-lg text-sm whitespace-nowrap transition">🏆
+                        Pro Tips</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-10">
+
+        <!-- Introduction Section -->
+        <section id="intro" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 glow-red">
+                <div class="text-center mb-8">
+                    <span class="text-6xl float-animation inline-block">🎯</span>
+                    <h2 class="text-3xl font-bold mt-4 text-white">शुरू करने से पहले जान लें</h2>
+                    <p class="text-gray-400 mt-2">Before You Start - Pre-Ride Checklist</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition">
+                        <div class="text-5xl mb-4">⛑️</div>
+                        <h3 class="font-bold text-lg text-white">हेलमेट पहनें</h3>
+                        <p class="text-gray-400 text-sm mt-2">ISI Mark वाला Helmet जरूरी है। Safety First!</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition">
+                        <div class="text-5xl mb-4">👟</div>
+                        <h3 class="font-bold text-lg text-white">सही जूते</h3>
+                        <p class="text-gray-400 text-sm mt-2">बंद जूते पहनें, चप्पल या सैंडल नहीं!</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition">
+                        <div class="text-5xl mb-4">🏟️</div>
+                        <h3 class="font-bold text-lg text-white">खाली जगह</h3>
+                        <p class="text-gray-400 text-sm mt-2">Empty ground या parking में practice करें</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition">
+                        <div class="text-5xl mb-4">👨‍🏫</div>
+                        <h3 class="font-bold text-lg text-white">साथ में कोई हो</h3>
+                        <p class="text-gray-400 text-sm mt-2">पहली बार में कोई experienced व्यक्ति साथ रखें</p>
+                    </div>
+                </div>
+
+                <!-- Pre-ride Checklist -->
+                <div class="mt-8 glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-yellow-400 mb-4">✅ Bike Check करें (Before Starting)</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">⛽ पेट्रोल चेक करें (Fuel
+                                Tank)</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">🔑 चाबी साथ में है</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">🪞 Mirrors सही position में
+                                हैं</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">💡 Lights काम कर रहीं
+                                हैं</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">📯 Horn काम कर रहा है</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="checkbox" class="w-5 h-5 accent-green-500">
+                            <span class="text-gray-300 group-hover:text-white transition">🛞 Tyres में हवा सही है</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bike Parts Section -->
+        <section id="parts" class="mb-12">
+            <div class="card-dark rounded-3xl p-8">
+                <div class="text-center mb-8">
+                    <span class="text-6xl float-animation inline-block">🔧</span>
+                    <h2 class="text-3xl font-bold mt-4 text-white">बाइक के पार्ट्स समझें</h2>
+                    <p class="text-gray-400 mt-2">Know Your Bike Controls</p>
+                </div>
+
+                <!-- Visual Bike Controls -->
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Left Side Controls -->
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-blue-400 mb-4 text-center">👈 बायां हाथ (Left Hand)</h3>
+
+                        <div class="space-y-4">
+                            <div
+                                class="bg-gradient-to-r from-purple-900/50 to-purple-800/30 rounded-xl p-4 border border-purple-500/30">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-4xl">🤚</span>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-purple-300 text-lg">CLUTCH (क्लच)</h4>
+                                        <p class="text-gray-300 mt-1">बाएं हाथ की तरफ लीवर होता है</p>
+                                        <div class="mt-3 bg-black/30 rounded-lg p-3">
+                                            <p class="text-sm text-gray-400"><strong class="text-purple-400">क्या करता
+                                                    है:</strong> Engine की Power को Wheel तक जाने से रोकता है</p>
+                                            <p class="text-sm text-gray-400 mt-2"><strong class="text-purple-400">कब
+                                                    दबाएं:</strong> गियर बदलते समय, रुकते समय, Start करते समय</p>
+                                        </div>
+                                        <div class="mt-3 flex gap-2">
+                                            <span
+                                                class="bg-purple-500/30 text-purple-300 px-3 py-1 rounded-full text-xs">गियर
+                                                बदलते समय</span>
+                                            <span
+                                                class="bg-purple-500/30 text-purple-300 px-3 py-1 rounded-full text-xs">रुकते
+                                                समय</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-gradient-to-r from-blue-900/50 to-blue-800/30 rounded-xl p-4 border border-blue-500/30">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-4xl">💡</span>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-blue-300 text-lg">Switch Panel</h4>
+                                        <p class="text-gray-300 mt-1">Indicator, Horn, High/Low Beam</p>
+                                        <div class="mt-3 grid grid-cols-3 gap-2 text-center text-xs">
+                                            <div class="bg-black/30 rounded p-2">
+                                                <span class="text-2xl">⬅️➡️</span>
+                                                <p class="text-gray-400 mt-1">Indicator</p>
+                                            </div>
+                                            <div class="bg-black/30 rounded p-2">
+                                                <span class="text-2xl">📯</span>
+                                                <p class="text-gray-400 mt-1">Horn</p>
+                                            </div>
+                                            <div class="bg-black/30 rounded p-2">
+                                                <span class="text-2xl">🔆</span>
+                                                <p class="text-gray-400 mt-1">Light</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side Controls -->
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-orange-400 mb-4 text-center">👉 दाहिना हाथ (Right Hand)</h3>
+
+                        <div class="space-y-4">
+                            <div
+                                class="bg-gradient-to-r from-orange-900/50 to-orange-800/30 rounded-xl p-4 border border-orange-500/30">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-4xl">🎚️</span>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-orange-300 text-lg">ACCELERATOR / RACE (एक्सीलेरेटर)
+                                        </h4>
+                                        <p class="text-gray-300 mt-1">दाहिने हाथ का ग्रिप घुमाने से Speed बढ़ती है</p>
+                                        <div class="mt-3 bg-black/30 rounded-lg p-3">
+                                            <p class="text-sm text-gray-400"><strong class="text-orange-400">क्या करता
+                                                    है:</strong> Engine को Fuel देता है = Speed बढ़ती है</p>
+                                            <p class="text-sm text-gray-400 mt-2"><strong class="text-orange-400">कैसे
+                                                    दें:</strong> ग्रिप को अपनी तरफ घुमाएं (Twist towards you)</p>
+                                        </div>
+                                        <!-- Visual Throttle -->
+                                        <div class="mt-4">
+                                            <div class="flex items-center gap-3">
+                                                <span class="text-sm text-gray-400">कम</span>
+                                                <input type="range" id="throttle" min="0" max="100" value="0"
+                                                    class="flex-1" onchange="updateThrottle(this.value)">
+                                                <span class="text-sm text-gray-400">ज्यादा</span>
+                                            </div>
+                                            <p class="text-center mt-2 text-orange-400 font-bold">Race: <span
+                                                    id="throttleValue">0</span>%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-gradient-to-r from-red-900/50 to-red-800/30 rounded-xl p-4 border border-red-500/30">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-4xl">🛑</span>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-red-300 text-lg">FRONT BRAKE (अगला ब्रेक)</h4>
+                                        <p class="text-gray-300 mt-1">दाहिने हाथ का लीवर</p>
+                                        <div class="mt-3 bg-black/30 rounded-lg p-3">
+                                            <p class="text-sm text-red-300">⚠️ धीरे-धीरे दबाएं, झटके से नहीं!</p>
+                                            <p class="text-sm text-gray-400 mt-2">Front brake ज्यादा powerful होता है -
+                                                सावधानी से use करें</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="bg-gradient-to-r from-green-900/50 to-green-800/30 rounded-xl p-4 border border-green-500/30">
+                                <div class="flex items-start gap-4">
+                                    <span class="text-4xl">🔘</span>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-green-300 text-lg">SELF START Button</h4>
+                                        <p class="text-gray-300 mt-1">Electric start के लिए button</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foot Controls -->
+                <div class="grid lg:grid-cols-2 gap-8 mt-8">
+                    <!-- Left Foot -->
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-indigo-400 mb-4 text-center">👣 बायां पैर (Left Foot)</h3>
+
+                        <div
+                            class="bg-gradient-to-r from-indigo-900/50 to-indigo-800/30 rounded-xl p-4 border border-indigo-500/30">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">⚙️</span>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-indigo-300 text-lg">GEAR LEVER (गियर लीवर)</h4>
+                                    <p class="text-gray-300 mt-1">पैर से गियर बदलने का पेडल</p>
+
+                                    <!-- Gear Pattern Visual -->
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <p class="text-sm text-indigo-300 mb-3 font-semibold">Hero Commuter Bikes का
+                                            Gear Pattern:</p>
+                                        <div class="flex items-center justify-center gap-2 flex-wrap">
+                                            <div class="flex flex-col items-center">
+                                                <span class="text-xs text-gray-500">आगे दबाएं ↑</span>
+                                                <div class="flex gap-1 mt-2">
+                                                    <span
+                                                        class="bg-green-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg glow-green">N</span>
+                                                </div>
+                                            </div>
+                                            <span class="text-2xl text-gray-500">⟷</span>
+                                            <div class="flex flex-col items-center">
+                                                <span class="text-xs text-gray-500">पीछे दबाएं ↓</span>
+                                                <div class="flex gap-1 mt-2">
+                                                    <span
+                                                        class="bg-orange-600 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold">1</span>
+                                                    <span
+                                                        class="bg-orange-500 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold">2</span>
+                                                    <span
+                                                        class="bg-orange-400 text-white w-10 h-10 rounded-lg flex items-center justify-center font-bold">3</span>
+                                                    <span
+                                                        class="bg-orange-300 text-black w-10 h-10 rounded-lg flex items-center justify-center font-bold">4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="text-center text-xs text-gray-500 mt-3">Splendor, HF Deluxe, Passion
+                                            में यही pattern है</p>
+                                    </div>
+
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <p class="text-sm text-blue-300 mb-3 font-semibold">Sports Bikes का Gear Pattern
+                                            (Xtreme):</p>
+                                        <div class="flex items-center justify-center gap-2">
+                                            <div class="flex flex-col items-center gap-1">
+                                                <div class="flex gap-1">
+                                                    <span
+                                                        class="bg-blue-400 text-white w-8 h-8 rounded flex items-center justify-center font-bold text-sm">2</span>
+                                                    <span
+                                                        class="bg-blue-500 text-white w-8 h-8 rounded flex items-center justify-center font-bold text-sm">3</span>
+                                                    <span
+                                                        class="bg-blue-600 text-white w-8 h-8 rounded flex items-center justify-center font-bold text-sm">4</span>
+                                                    <span
+                                                        class="bg-blue-700 text-white w-8 h-8 rounded flex items-center justify-center font-bold text-sm">5</span>
+                                                </div>
+                                                <span class="text-xs text-gray-500">↑ ऊपर</span>
+                                                <span
+                                                    class="bg-green-600 text-white w-8 h-8 rounded flex items-center justify-center font-bold">N</span>
+                                                <span class="text-xs text-gray-500">↓ नीचे</span>
+                                                <span
+                                                    class="bg-orange-600 text-white w-8 h-8 rounded flex items-center justify-center font-bold">1</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Foot -->
+                    <div class="glass-effect rounded-2xl p-6">
+                        <h3 class="text-xl font-bold text-pink-400 mb-4 text-center">👣 दाहिना पैर (Right Foot)</h3>
+
+                        <div
+                            class="bg-gradient-to-r from-pink-900/50 to-pink-800/30 rounded-xl p-4 border border-pink-500/30">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🦶</span>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-pink-300 text-lg">REAR BRAKE (पिछला ब्रेक)</h4>
+                                    <p class="text-gray-300 mt-1">पैर से दबाने वाला ब्रेक पेडल</p>
+
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <div class="flex items-center gap-3 mb-3">
+                                            <span class="text-3xl">✅</span>
+                                            <p class="text-green-300">शुरुआत में इसी ब्रेक का ज्यादा use करें</p>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <span class="text-3xl">💡</span>
+                                            <p class="text-yellow-300">यह ब्रेक ज्यादा safe है beginners के लिए</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="mt-4 bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-xl p-4 border border-red-500/30">
+                                        <p class="text-sm font-bold text-red-300 mb-2">⚠️ Brake Ratio (शुरुआत में):</p>
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex-1">
+                                                <p class="text-xs text-gray-400 mb-1">Rear Brake (पीछे)</p>
+                                                <div class="bg-gray-700 rounded-full h-4 overflow-hidden">
+                                                    <div class="bg-green-500 h-full" style="width: 70%"></div>
+                                                </div>
+                                                <p class="text-right text-green-400 text-sm mt-1">70%</p>
+                                            </div>
+                                            <div class="flex-1">
+                                                <p class="text-xs text-gray-400 mb-1">Front Brake (आगे)</p>
+                                                <div class="bg-gray-700 rounded-full h-4 overflow-hidden">
+                                                    <div class="bg-red-500 h-full" style="width: 30%"></div>
+                                                </div>
+                                                <p class="text-right text-red-400 text-sm mt-1">30%</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="mt-4 bg-gradient-to-r from-cyan-900/50 to-cyan-800/30 rounded-xl p-4 border border-cyan-500/30">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🦵</span>
+                                <div>
+                                    <h4 class="font-bold text-cyan-300 text-lg">KICK LEVER (किक)</h4>
+                                    <p class="text-gray-300 mt-1">Manual start के लिए (अगर battery weak हो)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instrument Panel -->
+                <div class="mt-8 glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-cyan-400 mb-6 text-center">📊 Meter / Dashboard समझें</h3>
+
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-black/40 rounded-xl p-4 text-center border-2 border-green-500/50">
+                            <div class="text-4xl mb-2">🟢</div>
+                            <h4 class="font-bold text-green-400">Neutral Light</h4>
+                            <p class="text-gray-400 text-sm mt-1">जब गियर N में हो</p>
+                            <p class="text-green-300 text-xs mt-2">✅ यह जलनी चाहिए start करते समय</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center border-2 border-red-500/50">
+                            <div class="text-4xl mb-2">🔴</div>
+                            <h4 class="font-bold text-red-400">Oil / Engine Light</h4>
+                            <p class="text-gray-400 text-sm mt-1">Engine या Oil problem</p>
+                            <p class="text-red-300 text-xs mt-2">⚠️ जले तो गाड़ी बंद करें</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center border-2 border-blue-500/50">
+                            <div class="text-4xl mb-2">🔵</div>
+                            <h4 class="font-bold text-blue-400">High Beam</h4>
+                            <p class="text-gray-400 text-sm mt-1">तेज़ light चालू है</p>
+                            <p class="text-blue-300 text-xs mt-2">रात में दूर देखने के लिए</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center border-2 border-orange-500/50">
+                            <div class="text-4xl mb-2">⛽</div>
+                            <h4 class="font-bold text-orange-400">Fuel Indicator</h4>
+                            <p class="text-gray-400 text-sm mt-1">पेट्रोल का level</p>
+                            <p class="text-orange-300 text-xs mt-2">Reserve में आने पर जलती है</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Bike Parts Diagram -->
+        <section id="interactive-parts" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 glow-blue">
+                <div class="text-center mb-8">
+                    <span class="text-6xl float-animation inline-block">🔍</span>
+                    <h2 class="text-3xl font-bold mt-4 text-white">Interactive Bike Diagram</h2>
+                    <p class="text-gray-400 mt-2">पार्ट्स पर क्लिक करके उनके बारे में जानें</p>
+                </div>
+
+                <div class="parts-container">
+                    <img src="bike_base.png" alt="Hero Splendor Diagram" class="parts-image">
+
+                    <!-- Hotspots -->
+                    <div class="part-hotspot" style="top: 25%; left: 63%;"
+                        onclick="showPartInfo('CLUTCH', 'बाएं हाथ का लीवर - गियर बदलने और रुकने के लिए।')">
+                        <div class="part-tooltip">Clutch Lever</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 25%; left: 78%;"
+                        onclick="showPartInfo('FRONT BRAKE', 'दाहिने हाथ का लीवर - अगला ब्रेक।')">
+                        <div class="part-tooltip">Front Brake</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 30%; left: 70%;"
+                        onclick="showPartInfo('ACCELERATOR', 'दाहिना ग्रिप - रेस देने के लिए।')">
+                        <div class="part-tooltip">Throttle</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 75%; left: 35%;"
+                        onclick="showPartInfo('GEAR LEVER', 'बाएं पैर का पेडल - गियर बदलने के लिए।')">
+                        <div class="part-tooltip">Gear Lever</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 75%; left: 65%;"
+                        onclick="showPartInfo('REAR BRAKE', 'दाहिने पैर का पेडल - पिछला ब्रेक।')">
+                        <div class="part-tooltip">Rear Brake</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 45%; left: 55%;"
+                        onclick="showPartInfo('ENGINE', 'बाइक का दिल - 100cc/110cc/125cc Power!')">
+                        <div class="part-tooltip">Engine</div>
+                    </div>
+                    <div class="part-hotspot" style="top: 35%; left: 50%;"
+                        onclick="showPartInfo('FUEL TANK', 'पेट्रोल टैंक - जहाँ ईंधन भरा जाता है।')">
+                        <div class="part-tooltip">Fuel Tank</div>
+                    </div>
+                </div>
+
+                <div id="part-detail-box" class="mt-8 bg-black/40 border border-blue-500/30 rounded-2xl p-6 hidden">
+                    <h3 id="part-title" class="text-xl font-bold text-blue-400 mb-2"></h3>
+                    <p id="part-desc" class="text-gray-300"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speed & Gear Simulator -->
+        <section id="simulator" class="mb-12">
+            <div class="sim-container glow-red">
+                <div class="text-center mb-8">
+                    <span class="text-6xl inline-block mb-4">🎮</span>
+                    <h2 class="text-3xl font-bold text-white">Riding Simulator</h2>
+                    <p class="text-gray-400">Controls का संतुलन हाथ से महसूस करें</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 items-center">
+                    <!-- Speedometer -->
+                    <div class="flex flex-col items-center">
+                        <div
+                            class="relative w-48 h-48 rounded-full border-8 border-gray-800 bg-black flex items-center justify-center overflow-hidden">
+                            <div class="speedometer absolute inset-0 opacity-20"></div>
+                            <div class="absolute inset-2 rounded-full border-2 border-gray-700"></div>
+                            <!-- Marks -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <span class="text-xs text-gray-500 absolute top-4">80</span>
+                                <span class="text-xs text-gray-500 absolute bottom-4">0</span>
+                                <span class="text-xs text-gray-500 absolute left-4">40</span>
+                                <span class="text-xs text-gray-500 absolute right-4">120</span>
+                            </div>
+                            <!-- Needle -->
+                            <div id="needle"
+                                class="speed-needle absolute bottom-1/2 left-1/2 w-1.5 h-20 bg-red-500 rounded-full"
+                                style="transform: translateX(-50%) rotate(-90deg);"></div>
+                            <div class="absolute bottom-6 text-center">
+                                <span id="speed-text" class="text-3xl font-bold text-white">0</span>
+                                <p class="text-[10px] text-gray-500">KM/H</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-gray-900 px-4 py-2 rounded-lg border border-gray-700">
+                            <span class="text-xs text-gray-500 uppercase">Current Gear</span>
+                            <div id="gear-display" class="text-2xl font-bold text-green-400 text-center">N</div>
+                        </div>
+                    </div>
+
+                    <!-- Simulator Controls -->
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-bold text-purple-400">Clutch (क्लच) 🤚</span>
+                                <span id="clutch-val" class="text-xs text-gray-500">0%</span>
+                            </div>
+                            <div class="relative h-6 flex items-center">
+                                <div class="biting-point-zone" style="left: 40%; width: 20%;"></div>
+                                <input type="range" id="sim-clutch" min="0" max="100" value="0"
+                                    class="w-full accent-purple-500 relative z-10">
+                            </div>
+                            <p class="text-[10px] text-green-400 mt-1 text-center font-bold">Green Zone = Biting Point
+                                (यहाँ से बाइक बढ़ेगी)</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-bold text-orange-400">Throttle (रेस) 🚀</span>
+                                <span id="throttle-val" class="text-xs text-gray-500">0%</span>
+                            </div>
+                            <input type="range" id="sim-throttle" min="0" max="100" value="0"
+                                class="w-full accent-orange-500">
+                        </div>
+                        <div class="flex justify-between gap-2">
+                            <button onclick="changeGearSim('up')"
+                                class="flex-1 bg-gray-800 hover:bg-gray-700 py-3 rounded-xl border border-gray-600 transition font-bold">Shift
+                                Up ↑</button>
+                            <button onclick="changeGearSim('down')"
+                                class="flex-1 bg-gray-800 hover:bg-gray-700 py-3 rounded-xl border border-gray-600 transition font-bold">Shift
+                                Down ↓</button>
+                        </div>
+                        <!-- Live Hint -->
+                        <div id="sim-hint-box"
+                            class="sim-hint bg-blue-500/20 border border-blue-500/30 rounded-xl p-3 text-center">
+                            <p id="sim-hint-text" class="text-sm font-bold text-blue-300">Start Engine to begin</p>
+                        </div>
+                    </div>
+
+                    <!-- Status Display -->
+                    <div id="engine-status"
+                        class="h-full flex flex-col justify-center gap-4 bg-black/30 rounded-2xl p-6 border border-white/5">
+                        <div class="text-center">
+                            <p class="text-xs text-gray-500 uppercase mb-1">Engine Status</p>
+                            <div id="status-text" class="text-xl font-bold text-gray-400">OFF</div>
+                        </div>
+                        <button id="start-btn" onclick="toggleEngine()"
+                            class="w-full bg-red-600 hover:bg-red-500 py-4 rounded-2xl font-extrabold shadow-lg shadow-red-900/50 transition transform active:scale-95">START
+                            ENGINE 🔘</button>
+                        <div id="stall-warning"
+                            class="hidden text-red-500 text-xs text-center animate-pulse font-bold mt-2">⚠️ ENGINE
+                            STALLED! Clutch दबाएं</div>
+                    </div>
+                </div>
+
+                <!-- Simulation Info -->
+                <div class="mt-8 grid md:grid-cols-2 gap-4">
+                    <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
+                        <p class="text-sm text-blue-300"><strong>Mission:</strong> गियर 1 में बाइक को "Move"
+                            कराएं।<br>धीरे-धीरे क्लच छोड़ें और हल्की रेस दें।</p>
+                    </div>
+                    <div class="bg-green-500/10 border border-green-500/20 rounded-xl p-4">
+                        <p class="text-sm text-green-300"><strong>Tip:</strong> अगर क्लच ज्यादा जल्दी छोड़ेंगे तो इंजन
+                            'Stall' (बंद) हो जाएगा।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 1: Starting -->
+        <section id="step1" class="mb-12">
+            <div class="step-card card-dark rounded-3xl p-8 border-l-4 border-red-500 glow-red">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="bg-gradient-to-br from-red-500 to-red-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg">1</span>
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">गाड़ी स्टार्ट करना</h2>
+                        <p class="text-red-400 font-medium text-lg">Starting the Bike</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Steps -->
+                <div class="relative ml-4 md:ml-8">
+                    <div
+                        class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 via-orange-500 to-green-500 rounded-full">
+                    </div>
+
+                    <!-- Step 1.1 -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-red-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            A</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl">🧍</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-red-300 text-xl">बाइक पर बैठें (Sit on Bike)</h3>
+                                    <ul class="mt-3 space-y-2 text-gray-300">
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-400">✓</span>
+                                            <span>Main Stand या Side Stand से गाड़ी उतारें</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-400">✓</span>
+                                            <span>बैठकर <strong class="text-white">दोनों पैर जमीन पर</strong>
+                                                रखें</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="text-green-400">✓</span>
+                                            <span>Handlebar पकड़ें, कंधे relaxed रखें</span>
+                                        </li>
+                                    </ul>
+                                    <div class="mt-4 bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-3">
+                                        <p class="text-yellow-300 text-sm">💡 <strong>Tip:</strong> पहली बार में Side
+                                            Stand लगाकर भी practice कर सकते हैं</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1.2 -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            B</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl pulse-icon">🟢</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-green-300 text-xl">Neutral Check करें</h3>
+                                    <p class="text-gray-300 mt-2">गियर <strong class="text-white">Neutral (N)</strong>
+                                        में होना चाहिए</p>
+
+                                    <div class="mt-4 flex flex-col md:flex-row gap-4">
+                                        <div
+                                            class="flex-1 bg-green-500/20 border-2 border-green-500 rounded-xl p-4 text-center">
+                                            <span class="text-5xl">🟢</span>
+                                            <p class="text-green-300 font-bold mt-2">Green N Light जली हुई</p>
+                                            <p class="text-green-200 text-sm mt-1">✅ सही है - Start कर सकते हैं</p>
+                                        </div>
+                                        <div
+                                            class="flex-1 bg-red-500/20 border-2 border-red-500 rounded-xl p-4 text-center">
+                                            <span class="text-5xl">⚫</span>
+                                            <p class="text-red-300 font-bold mt-2">Light नहीं जली</p>
+                                            <p class="text-red-200 text-sm mt-1">❌ पहले Neutral में करें</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 bg-blue-500/20 border border-blue-500/50 rounded-lg p-3">
+                                        <p class="text-blue-300 text-sm">🔧 <strong>Neutral कैसे करें:</strong> Clutch
+                                            दबाकर गियर को बार-बार ऊपर-नीचे करें जब तक N light न जले</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1.3 -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            C</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl">🔑</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-yellow-300 text-xl">चाबी लगाएं और ON करें</h3>
+                                    <p class="text-gray-300 mt-2">Ignition में चाबी डालकर <strong
+                                            class="text-white">ON</strong> position पर घुमाएं</p>
+
+                                    <div class="mt-4 flex items-center gap-4">
+                                        <div
+                                            class="bg-gray-800 rounded-full w-24 h-24 flex items-center justify-center border-4 border-gray-600 relative">
+                                            <div class="absolute w-3 h-10 bg-yellow-500 rounded-full"
+                                                style="transform: rotate(45deg); transform-origin: bottom center;">
+                                            </div>
+                                            <span class="absolute -top-6 text-xs text-gray-400">OFF</span>
+                                            <span class="absolute -bottom-6 text-xs text-gray-400">LOCK</span>
+                                            <span class="absolute -right-8 text-xs text-green-400 font-bold">ON</span>
+                                        </div>
+                                        <div class="text-gray-400">
+                                            <p>🔄 चाबी को ON की तरफ घुमाएं</p>
+                                            <p class="text-sm mt-2">Dashboard की सभी lights एक बार जलेंगी</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1.4 -->
+                    <div class="relative pl-12">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-green-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            D</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl">⚡</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-green-300 text-xl">Engine Start करें</h3>
+
+                                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                                        <div
+                                            class="bg-gradient-to-br from-green-900/50 to-green-800/30 rounded-xl p-4 border border-green-500/50">
+                                            <div class="text-center">
+                                                <span class="text-4xl">🔘</span>
+                                                <h4 class="font-bold text-green-300 mt-2">Self Start (आसान)</h4>
+                                                <p class="text-gray-400 text-sm mt-2">दाहिने हाथ का Green button दबाएं
+                                                </p>
+                                                <div
+                                                    class="mt-3 bg-green-500 text-white px-4 py-2 rounded-lg inline-block font-bold">
+                                                    START 🔘
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="bg-gradient-to-br from-orange-900/50 to-orange-800/30 rounded-xl p-4 border border-orange-500/50">
+                                            <div class="text-center">
+                                                <span class="text-4xl">🦵</span>
+                                                <h4 class="font-bold text-orange-300 mt-2">Kick Start</h4>
+                                                <p class="text-gray-400 text-sm mt-2">दाहिने पैर से kick लीवर को जोर से
+                                                    दबाएं</p>
+                                                <p class="text-orange-300 text-xs mt-3">अगर battery weak हो तो use करें
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="mt-4 bg-gradient-to-r from-red-900/50 to-orange-900/50 rounded-xl p-4 border border-red-500/50">
+                                        <p class="text-red-300 font-bold">⚠️ याद रखें:</p>
+                                        <ul class="mt-2 space-y-1 text-gray-300 text-sm">
+                                            <li>• अभी Clutch या Race देने की जरूरत <strong
+                                                    class="text-red-300">नहीं</strong> है</li>
+                                            <li>• Neutral में गाड़ी directly start होती है</li>
+                                            <li>• Engine की आवाज़ आनी चाहिए - "ढक ढक ढक..."</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success State -->
+                <div
+                    class="mt-8 bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-2xl p-6 border border-green-500/50 text-center">
+                    <span class="text-5xl">🎉</span>
+                    <h3 class="text-2xl font-bold text-green-300 mt-3">बधाई! गाड़ी Start हो गई</h3>
+                    <p class="text-gray-400 mt-2">Engine चल रहा है, अब आगे बढ़ने का समय है!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Moving -->
+        <section id="step2" class="mb-12">
+            <div class="step-card card-dark rounded-3xl p-8 border-l-4 border-orange-500 glow-orange">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="bg-gradient-to-br from-orange-500 to-orange-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg">2</span>
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">गाड़ी को आगे बढ़ाना</h2>
+                        <p class="text-orange-400 font-medium text-lg">Moving in 1st Gear - सबसे Important!</p>
+                    </div>
+                </div>
+
+                <!-- Critical Info Box -->
+                <div
+                    class="bg-gradient-to-r from-red-900/50 to-orange-900/50 rounded-2xl p-6 mb-8 border-2 border-orange-500/50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-4xl pulse-icon">⭐</span>
+                        <h3 class="text-xl font-bold text-orange-300">यह सबसे मुश्किल और Important Step है!</h3>
+                    </div>
+                    <p class="text-gray-300">इसमें थोड़ा समय लगता है, 5-10 बार में सीख जाएंगे। घबराएं नहीं!</p>
+                </div>
+
+                <!-- Timeline Steps -->
+                <div class="relative ml-4 md:ml-8">
+                    <div
+                        class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-yellow-500 to-green-500 rounded-full">
+                    </div>
+
+                    <!-- Step 2.1 -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            1</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl">🤚</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-purple-300 text-xl">Clutch पूरा दबाएं</h3>
+                                    <p class="text-gray-300 mt-2"><strong class="text-white">बाएं हाथ</strong> से Clutch
+                                        lever को पूरा अंदर खींचें</p>
+
+                                    <!-- Clutch Visual -->
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <div class="flex items-center justify-center gap-6">
+                                            <div class="text-center">
+                                                <div class="w-20 h-8 bg-gray-600 rounded-lg relative">
+                                                    <div class="absolute right-1 top-1 w-6 h-6 bg-purple-500 rounded">
+                                                    </div>
+                                                </div>
+                                                <p class="text-gray-500 text-xs mt-2">छोड़ा हुआ</p>
+                                            </div>
+                                            <span class="text-2xl">➡️</span>
+                                            <div class="text-center">
+                                                <div class="w-20 h-8 bg-gray-600 rounded-lg relative">
+                                                    <div class="absolute left-1 top-1 w-6 h-6 bg-green-500 rounded">
+                                                    </div>
+                                                </div>
+                                                <p class="text-green-400 text-xs mt-2 font-bold">पूरा दबाया ✓</p>
+                                            </div>
+                                        </div>
+                                        <p class="text-center text-gray-400 text-sm mt-3">Lever को Handlebar तक खींचें
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2.2 -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            2</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-5xl">🦶</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-indigo-300 text-xl">1st Gear लगाएं</h3>
+                                    <p class="text-gray-300 mt-2">बाएं पैर से गियर लीवर को <strong
+                                            class="text-white">पीछे (Heel से)</strong> दबाएं</p>
+
+                                    <!-- Gear Visual -->
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <div class="flex items-center justify-center gap-4">
+                                            <div class="flex flex-col items-center">
+                                                <div
+                                                    class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center text-2xl font-bold text-white border-4 border-green-400">
+                                                    N</div>
+                                                <span class="text-xs text-gray-400 mt-1">अभी यहाँ है</span>
+                                            </div>
+                                            <div class="flex flex-col items-center">
+                                                <span class="text-4xl">👇</span>
+                                                <span class="text-xs text-gray-400">पीछे दबाएं</span>
+                                            </div>
+                                            <div class="flex flex-col items-center">
+                                                <div
+                                                    class="w-16 h-16 bg-orange-600 rounded-xl flex items-center justify-center text-2xl font-bold text-white border-4 border-orange-400 glow-orange">
+                                                    1</div>
+                                                <span class="text-xs text-orange-400 mt-1 font-bold">यहाँ जाना है</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-center text-gray-400 text-sm mt-3">"टक" की आवाज़ आएगी = Gear लग
+                                            गया</p>
+                                    </div>
+
+                                    <div class="mt-4 bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-3">
+                                        <p class="text-yellow-300 text-sm">💡 N light बंद हो जाएगी - यह सही है!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2.3 - THE CRITICAL STEP -->
+                    <div class="relative pl-12 pb-8">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-red-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800 pulse-icon">
+                            3</div>
+                        <div
+                            class="bg-gradient-to-br from-red-900/40 to-orange-900/40 rounded-2xl p-6 border-2 border-red-500/50">
+                            <div class="flex items-start gap-4">
+                                <span class="text-6xl">🎯</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-red-300 text-2xl mb-4">सबसे Important: Biting Point ढूंढें
+                                    </h3>
+
+                                    <div class="space-y-6">
+                                        <!-- Sub-step A -->
+                                        <div class="flex items-start gap-4 bg-black/30 rounded-xl p-4">
+                                            <span
+                                                class="bg-red-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0">A</span>
+                                            <div>
+                                                <p class="text-white font-semibold">क्लच को बहुत धीरे-धीरे छोड़ना शुरू
+                                                    करें</p>
+                                                <p class="text-gray-400 text-sm mt-1">एकदम slow... जैसे slow motion में
+                                                </p>
+
+                                                <!-- Visual of clutch release -->
+                                                <div class="mt-3 flex items-center gap-2">
+                                                    <span class="text-xs text-purple-400">पूरा दबा</span>
+                                                    <div class="flex-1 h-4 bg-gray-700 rounded-full overflow-hidden">
+                                                        <div
+                                                            class="h-full bg-gradient-to-r from-purple-500 via-yellow-500 to-green-500 w-1/3">
+                                                        </div>
+                                                    </div>
+                                                    <span class="text-xs text-green-400">पूरा छोड़ा</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sub-step B -->
+                                        <div
+                                            class="flex items-start gap-4 bg-yellow-500/20 rounded-xl p-4 border-2 border-yellow-500/50">
+                                            <span
+                                                class="bg-yellow-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0">B</span>
+                                            <div>
+                                                <p class="text-yellow-300 font-bold text-lg">🎯 BITING POINT - यहाँ
+                                                    रुकें!</p>
+                                                <p class="text-gray-300 mt-2">जब गाड़ी में <strong
+                                                        class="text-white">हल्का सा झटका</strong> आए और वो आगे बढ़ने
+                                                    लगे...</p>
+                                                <div class="mt-3 bg-black/40 rounded-lg p-3">
+                                                    <p class="text-yellow-200 text-sm">आपको feel होगा:</p>
+                                                    <ul class="mt-2 space-y-1 text-gray-300 text-sm">
+                                                        <li>• गाड़ी थोड़ी हिलेगी</li>
+                                                        <li>• Engine की आवाज़ थोड़ी भारी होगी</li>
+                                                        <li>• Handlebar में vibration आएगी</li>
+                                                    </ul>
+                                                </div>
+                                                <p class="mt-3 text-red-300 font-bold">⚠️ यहीं पर क्लच को HOLD करें! और
+                                                    छोड़ना बंद करें!</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sub-step C -->
+                                        <div class="flex items-start gap-4 bg-black/30 rounded-xl p-4">
+                                            <span
+                                                class="bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0">C</span>
+                                            <div>
+                                                <p class="text-white font-semibold">अब दाहिने हाथ से हल्का सा Race दें
+                                                </p>
+                                                <p class="text-gray-400 text-sm mt-1">Accelerator को थोड़ा सा घुमाएं -
+                                                    बहुत हल्का!</p>
+
+                                                <div class="mt-3 flex items-center gap-3">
+                                                    <span class="text-sm text-gray-400">Race:</span>
+                                                    <div class="flex gap-1">
+                                                        <div class="w-6 h-6 bg-green-500 rounded"></div>
+                                                        <div class="w-6 h-6 bg-gray-600 rounded"></div>
+                                                        <div class="w-6 h-6 bg-gray-600 rounded"></div>
+                                                        <div class="w-6 h-6 bg-gray-600 rounded"></div>
+                                                        <div class="w-6 h-6 bg-gray-600 rounded"></div>
+                                                    </div>
+                                                    <span class="text-green-400 text-sm">~20% ही</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Sub-step D -->
+                                        <div
+                                            class="flex items-start gap-4 bg-green-500/20 rounded-xl p-4 border-2 border-green-500/50">
+                                            <span
+                                                class="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0">D</span>
+                                            <div>
+                                                <p class="text-green-300 font-bold text-lg">✅ गाड़ी चल पड़ी!</p>
+                                                <p class="text-gray-300 mt-2">जब गाड़ी smoothly चलने लगे, तो क्लच
+                                                    <strong class="text-white">पूरा छोड़ दें</strong>
+                                                </p>
+                                                <p class="text-gray-400 text-sm mt-2">अब सिर्फ Race से control करें</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Common Mistakes -->
+                    <div class="relative pl-12">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-gray-600 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            !</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <h3 class="font-bold text-red-400 text-xl mb-4">❌ Common Mistakes (गलतियाँ)</h3>
+
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-900/30 rounded-xl p-4 border border-red-500/30">
+                                    <p class="text-red-300 font-bold">🛑 गाड़ी बंद हो गई?</p>
+                                    <p class="text-gray-400 text-sm mt-2"><strong>कारण:</strong> क्लच जल्दी छोड़ दिया या
+                                        Race नहीं दी</p>
+                                    <p class="text-green-300 text-sm mt-2"><strong>Solution:</strong> और धीरे क्लच
+                                        छोड़ें + थोड़ी race साथ में दें</p>
+                                </div>
+                                <div class="bg-red-900/30 rounded-xl p-4 border border-red-500/30">
+                                    <p class="text-red-300 font-bold">🏎️ गाड़ी उछल गई?</p>
+                                    <p class="text-gray-400 text-sm mt-2"><strong>कारण:</strong> बहुत ज्यादा Race दे दी
+                                    </p>
+                                    <p class="text-green-300 text-sm mt-2"><strong>Solution:</strong> Race बहुत हल्की
+                                        दें, clutch धीरे छोड़ें</p>
+                                </div>
+                                <div class="bg-red-900/30 rounded-xl p-4 border border-red-500/30">
+                                    <p class="text-red-300 font-bold">🔊 Engine जोर से बोल रहा?</p>
+                                    <p class="text-gray-400 text-sm mt-2"><strong>कारण:</strong> Race दे रहे पर क्लच
+                                        नहीं छोड़ रहे</p>
+                                    <p class="text-green-300 text-sm mt-2"><strong>Solution:</strong> Race देते हुए
+                                        धीरे-धीरे क्लच छोड़ें</p>
+                                </div>
+                                <div class="bg-green-900/30 rounded-xl p-4 border border-green-500/30">
+                                    <p class="text-green-300 font-bold">💡 Pro Tip</p>
+                                    <p class="text-gray-400 text-sm mt-2">पहले बिना race के सिर्फ clutch play करके
+                                        Biting Point ढूंढें। जब मिल जाए, तब race add करें।</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Box -->
+                <div
+                    class="mt-8 bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-2xl p-6 border border-blue-500/50">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🔄</span>
+                        <h3 class="text-xl font-bold text-blue-300">Practice करें</h3>
+                    </div>
+                    <p class="text-gray-300">यह step 5-10 बार repeat करें:</p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="bg-gray-700 px-3 py-2 rounded-lg">Start करो</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-gray-700 px-3 py-2 rounded-lg">1st gear डालो</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-gray-700 px-3 py-2 rounded-lg">धीरे चलाओ</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-gray-700 px-3 py-2 rounded-lg">Brake से रुको</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-gray-700 px-3 py-2 rounded-lg">Neutral करो</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-green-700 px-3 py-2 rounded-lg">फिर से! 🔁</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Gear Shifting -->
+        <section id="step3" class="mb-12">
+            <div class="step-card card-dark rounded-3xl p-8 border-l-4 border-yellow-500">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="bg-gradient-to-br from-yellow-500 to-yellow-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg">3</span>
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">गियर बदलना</h2>
+                        <p class="text-yellow-400 font-medium text-lg">Shifting Gears - 2nd, 3rd, 4th</p>
+                    </div>
+                </div>
+
+                <!-- When to Shift -->
+                <div class="glass-effect rounded-2xl p-6 mb-8">
+                    <h3 class="text-xl font-bold text-yellow-300 mb-4">🤔 कब गियर बदलना है?</h3>
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-gray-300 mb-4">जब <strong class="text-white">Engine जोर से बोलने</strong> लगे
+                                और Speed बढ़ गई हो:</p>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 bg-orange-500/20 rounded-lg p-3">
+                                    <span class="bg-orange-600 text-white px-3 py-1 rounded font-bold">1st</span>
+                                    <span class="text-gray-400">→</span>
+                                    <span class="text-gray-300">0 - 15 km/h</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-yellow-500/20 rounded-lg p-3">
+                                    <span class="bg-yellow-600 text-white px-3 py-1 rounded font-bold">2nd</span>
+                                    <span class="text-gray-400">→</span>
+                                    <span class="text-gray-300">15 - 30 km/h</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-green-500/20 rounded-lg p-3">
+                                    <span class="bg-green-600 text-white px-3 py-1 rounded font-bold">3rd</span>
+                                    <span class="text-gray-400">→</span>
+                                    <span class="text-gray-300">30 - 45 km/h</span>
+                                </div>
+                                <div class="flex items-center gap-3 bg-blue-500/20 rounded-lg p-3">
+                                    <span class="bg-blue-600 text-white px-3 py-1 rounded font-bold">4th</span>
+                                    <span class="text-gray-400">→</span>
+                                    <span class="text-gray-300">45+ km/h</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4">
+                            <p class="text-gray-400 text-sm mb-3">Engine Sound से पहचानें:</p>
+                            <div class="space-y-4">
+                                <div>
+                                    <p class="text-green-400 font-semibold">✅ सही Sound</p>
+                                    <p class="text-gray-500 text-sm">"ढक ढक ढक" - smooth, normal</p>
+                                </div>
+                                <div>
+                                    <p class="text-red-400 font-semibold">❌ गियर बदलो! (High RPM)</p>
+                                    <p class="text-gray-500 text-sm">"व्हीईईईं..." - तेज़, चिल्लाती आवाज़</p>
+                                </div>
+                                <div>
+                                    <p class="text-yellow-400 font-semibold">⚠️ गियर कम करो (Low RPM)</p>
+                                    <p class="text-gray-500 text-sm">"ढक...ढक...ढक" - धीमी, हिचकी जैसी</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gear Shift Process -->
+                <div
+                    class="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 rounded-2xl p-6 border border-yellow-500/30">
+                    <h3 class="text-xl font-bold text-yellow-300 mb-6 text-center">⚙️ गियर बदलने का तरीका (1st → 2nd)
+                    </h3>
+
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-black/40 rounded-xl p-4 text-center relative">
+                            <div
+                                class="absolute -top-3 -left-3 bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                                1</div>
+                            <span class="text-4xl">🛑</span>
+                            <h4 class="font-bold text-red-300 mt-2">Race छोड़ें</h4>
+                            <p class="text-gray-400 text-sm mt-2">Accelerator को पूरा छोड़ दें (0%)</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center relative">
+                            <div
+                                class="absolute -top-3 -left-3 bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                                2</div>
+                            <span class="text-4xl">🤚</span>
+                            <h4 class="font-bold text-purple-300 mt-2">Clutch दबाएं</h4>
+                            <p class="text-gray-400 text-sm mt-2">तुरंत! पूरा दबाएं</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center relative">
+                            <div
+                                class="absolute -top-3 -left-3 bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                                3</div>
+                            <span class="text-4xl">🦶</span>
+                            <h4 class="font-bold text-blue-300 mt-2">Gear बदलें</h4>
+                            <p class="text-gray-400 text-sm mt-2">पैर से 2nd gear लगाएं</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center relative">
+                            <div
+                                class="absolute -top-3 -left-3 bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                                4</div>
+                            <span class="text-4xl">🚀</span>
+                            <h4 class="font-bold text-green-300 mt-2">छोड़ें + Race</h4>
+                            <p class="text-gray-400 text-sm mt-2">Clutch छोड़ें, Race दें</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-green-500/20 border border-green-500/50 rounded-xl p-4 text-center">
+                        <p class="text-green-300">💡 <strong>2nd gear में Clutch जल्दी छोड़ सकते हैं</strong> - 1st gear
+                            जितना धीरे नहीं</p>
+                    </div>
+                </div>
+
+                <!-- Same for other gears -->
+                <div class="mt-6 glass-effect rounded-2xl p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-3xl">🔄</span>
+                        <h3 class="text-lg font-bold text-gray-200">यही Process 3rd और 4th Gear के लिए</h3>
+                    </div>
+                    <p class="text-gray-400">बस Speed बढ़ती जाएगी और Clutch और भी जल्दी छोड़ सकते हैं।</p>
+
+                    <div class="mt-4 flex flex-wrap items-center gap-2 text-sm">
+                        <span class="bg-orange-600 text-white px-4 py-2 rounded-lg font-bold">1st</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-yellow-600 text-white px-4 py-2 rounded-lg font-bold">2nd</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-green-600 text-white px-4 py-2 rounded-lg font-bold">3rd</span>
+                        <span class="text-gray-500">→</span>
+                        <span class="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold">4th</span>
+                        <span class="text-2xl ml-2">🎉</span>
+                    </div>
+                </div>
+
+                <!-- Down Shifting -->
+                <div class="mt-6 glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-orange-300 mb-4">⬇️ Gear Down करना (Speed कम करते समय)</h3>
+                    <p class="text-gray-300 mb-4">जब speed कम हो रही हो, तो उसी हिसाब से gear भी कम करना होता है:</p>
+
+                    <div class="bg-black/40 rounded-xl p-4">
+                        <div class="flex flex-wrap items-center gap-2 justify-center">
+                            <span class="bg-blue-600 text-white px-3 py-2 rounded font-bold">4th (45+ km/h)</span>
+                            <span class="text-gray-500">→</span>
+                            <span class="bg-green-600 text-white px-3 py-2 rounded font-bold">3rd (30-45)</span>
+                            <span class="text-gray-500">→</span>
+                            <span class="bg-yellow-600 text-white px-3 py-2 rounded font-bold">2nd (15-30)</span>
+                            <span class="text-gray-500">→</span>
+                            <span class="bg-orange-600 text-white px-3 py-2 rounded font-bold">1st (0-15)</span>
+                            <span class="text-gray-500">→</span>
+                            <span class="bg-green-500 text-white px-3 py-2 rounded font-bold">N (रुकने पर)</span>
+                        </div>
+                        <p class="text-gray-500 text-sm text-center mt-3">Hero bikes में: आगे वाला पेडल दबाने से gear कम
+                            होता है</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 4: Stopping -->
+        <section id="step4" class="mb-12">
+            <div class="step-card card-dark rounded-3xl p-8 border-l-4 border-green-500 glow-green">
+                <div class="flex items-center gap-4 mb-6">
+                    <span
+                        class="bg-gradient-to-br from-green-500 to-green-700 text-white w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-bold shadow-lg">4</span>
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">गाड़ी रोकना</h2>
+                        <p class="text-green-400 font-medium text-lg">Slowing Down & Stopping</p>
+                    </div>
+                </div>
+
+                <!-- Scenario -->
+                <div class="glass-effect rounded-2xl p-6 mb-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🚧</span>
+                        <h3 class="text-xl font-bold text-orange-300">Situation: सामने ब्रेकर है या रुकना है</h3>
+                    </div>
+                </div>
+
+                <!-- Stopping Process -->
+                <div class="relative ml-4 md:ml-8">
+                    <div
+                        class="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 via-yellow-500 to-green-500 rounded-full">
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="relative pl-12 pb-6">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-red-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            1</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🛑</span>
+                                <div>
+                                    <h3 class="font-bold text-red-300 text-xl">Race पूरी छोड़ दें</h3>
+                                    <p class="text-gray-300 mt-2">Accelerator को <strong class="text-white">0%</strong>
+                                        कर दें</p>
+                                    <p class="text-gray-500 text-sm mt-1">Engine Braking से गाड़ी खुद धीमी होने लगेगी
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative pl-12 pb-6">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            2</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🎯</span>
+                                <div class="flex-1">
+                                    <h3 class="font-bold text-orange-300 text-xl">Brake धीरे-धीरे दबाएं</h3>
+                                    <p class="text-gray-300 mt-2"><strong class="text-white">दोनों</strong> brake use
+                                        करें - Front + Rear</p>
+
+                                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                                        <div class="bg-pink-900/30 rounded-xl p-4 border border-pink-500/30">
+                                            <p class="font-bold text-pink-300">👣 Rear Brake (पैर)</p>
+                                            <p class="text-gray-400 text-sm mt-1">ज्यादा use करें (70%)</p>
+                                            <p class="text-green-400 text-xs mt-2">✅ Safe for beginners</p>
+                                        </div>
+                                        <div class="bg-red-900/30 rounded-xl p-4 border border-red-500/30">
+                                            <p class="font-bold text-red-300">🤚 Front Brake (हाथ)</p>
+                                            <p class="text-gray-400 text-sm mt-1">कम use करें (30%)</p>
+                                            <p class="text-yellow-400 text-xs mt-2">⚠️ Powerful - सावधानी से</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-4 bg-red-500/20 border border-red-500/50 rounded-lg p-3">
+                                        <p class="text-red-300 font-bold">❌ कभी भी झटके से Brake न लगाएं!</p>
+                                        <p class="text-gray-400 text-sm mt-1">गाड़ी फिसल सकती है या balance बिगड़ सकता
+                                            है</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative pl-12 pb-6">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            3</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🤚</span>
+                                <div>
+                                    <h3 class="font-bold text-yellow-300 text-xl">Speed बहुत कम होने पर Clutch दबाएं
+                                    </h3>
+                                    <p class="text-gray-300 mt-2">जब गाड़ी <strong class="text-white">लगभग रुकने वाली
+                                            हो</strong> (5 km/h से कम)</p>
+                                    <p class="text-gray-500 text-sm mt-1">ताकि Engine बंद न हो (stall)</p>
+
+                                    <div class="mt-4 bg-green-500/20 border border-green-500/50 rounded-lg p-3">
+                                        <p class="text-green-300">✅ Clutch दबाने से Engine और Wheel disconnect हो जाते
+                                            हैं</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative pl-12 pb-6">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-green-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            4</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">🦶</span>
+                                <div>
+                                    <h3 class="font-bold text-green-300 text-xl">रुकने पर पैर जमीन पर रखें</h3>
+                                    <p class="text-gray-300 mt-2">Balance के लिए <strong class="text-white">बायां
+                                            पैर</strong> जमीन पर रखें</p>
+                                    <p class="text-gray-500 text-sm mt-1">दाहिना पैर Rear brake पर रहे</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative pl-12">
+                        <div
+                            class="absolute left-0 w-9 h-9 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold border-4 border-gray-800">
+                            5</div>
+                        <div class="glass-effect rounded-2xl p-5">
+                            <div class="flex items-start gap-4">
+                                <span class="text-4xl">⚙️</span>
+                                <div>
+                                    <h3 class="font-bold text-blue-300 text-xl">Neutral में करें</h3>
+                                    <p class="text-gray-300 mt-2">Clutch दबाए हुए, गियर को <strong class="text-white">N
+                                            (Neutral)</strong> में करें</p>
+
+                                    <div class="mt-4 bg-black/40 rounded-xl p-4">
+                                        <p class="text-gray-400 text-sm">Hero Bikes में:</p>
+                                        <p class="text-blue-300 mt-2">आगे वाला पेडल (Toe) बार-बार दबाएं जब तक <span
+                                                class="text-green-400 font-bold">🟢 N light</span> न जले</p>
+                                    </div>
+
+                                    <div class="mt-4 bg-green-500/20 border border-green-500/50 rounded-lg p-3">
+                                        <p class="text-green-300">✅ अब Clutch छोड़ सकते हैं - Engine चलता रहेगा</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stop Emergency -->
+                <div
+                    class="mt-8 bg-gradient-to-r from-red-900/50 to-orange-900/50 rounded-2xl p-6 border-2 border-red-500/50">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="text-4xl">🚨</span>
+                        <h3 class="text-xl font-bold text-red-300">Emergency Stop कैसे करें?</h3>
+                    </div>
+                    <p class="text-gray-300 mb-4">अगर अचानक रुकना पड़े:</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-black/40 rounded-xl p-4 text-center">
+                            <span class="text-3xl">1️⃣</span>
+                            <p class="text-white font-bold mt-2">Race + Clutch</p>
+                            <p class="text-gray-400 text-sm">दोनों तुरंत</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center">
+                            <span class="text-3xl">2️⃣</span>
+                            <p class="text-white font-bold mt-2">Both Brakes</p>
+                            <p class="text-gray-400 text-sm">दोनों brake firmly</p>
+                        </div>
+                        <div class="bg-black/40 rounded-xl p-4 text-center">
+                            <span class="text-3xl">3️⃣</span>
+                            <p class="text-white font-bold mt-2">Feet Down</p>
+                            <p class="text-gray-400 text-sm">पैर जमीन पर</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Road Signs & Rules -->
+        <section id="safety-rules" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-t-4 border-yellow-500">
+                <div class="text-center mb-10">
+                    <span class="text-6xl inline-block mb-4">🚦</span>
+                    <h2 class="text-3xl font-bold text-white">Road Signs & Traffic Rules</h2>
+                    <p class="text-gray-400">सड़क सुरक्षा और महत्वपूर्ण संकेत</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+                    <div class="bg-red-500/10 border-2 border-red-500/50 rounded-2xl p-4 text-center">
+                        <div
+                            class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto text-xl font-bold mb-3 shadow-lg shadow-red-900/50">
+                            STOP</div>
+                        <h4 class="text-white font-bold">रुकिए</h4>
+                        <p class="text-xs text-gray-500 mt-1">हमेशा रुकें और देखें</p>
+                    </div>
+                    <div class="bg-red-500/10 border-2 border-red-500/50 rounded-2xl p-4 text-center">
+                        <div
+                            class="w-16 h-16 border-4 border-red-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <div class="w-12 h-2 bg-red-600 transform rotate-45"></div>
+                        </div>
+                        <h4 class="text-white font-bold">प्रवेश निषेध</h4>
+                        <p class="text-xs text-gray-500 mt-1">No Entry</p>
+                    </div>
+                    <div class="bg-blue-500/10 border-2 border-blue-500/50 rounded-2xl p-4 text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-3xl text-white">⬆️</span>
+                        </div>
+                        <h4 class="text-white font-bold">एक तरफा रास्ता</h4>
+                        <p class="text-xs text-gray-500 mt-1">One Way Only</p>
+                    </div>
+                    <div class="bg-yellow-500/10 border-2 border-yellow-500/50 rounded-2xl p-4 text-center">
+                        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl text-black font-extrabold">40</span>
+                        </div>
+                        <h4 class="text-white font-bold">गति सीमा</h4>
+                        <p class="text-xs text-gray-500 mt-1">Speed Limit</p>
+                    </div>
+                </div>
+
+                <div class="glass-effect rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-orange-400 mb-4 flex items-center gap-2">
+                        <span>👋</span> हाथ के संकेत (Hand Signals)
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                            <p class="text-white font-bold mb-2">बाएं मुड़ने के लिए</p>
+                            <p class="text-sm text-gray-400">दाहिने हाथ को सिर के ऊपर से बाएं घुमाएं</p>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                            <p class="text-white font-bold mb-2">दाहिने मुड़ने के लिए</p>
+                            <p class="text-sm text-gray-400">दाहिना हाथ सीधा बाहर निकालें</p>
+                        </div>
+                        <div class="bg-black/20 p-4 rounded-xl border border-white/5">
+                            <p class="text-white font-bold mb-2">रुकने के लिए</p>
+                            <p class="text-sm text-gray-400">हथेली को पीछे की तरफ सीधा उठाएं</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weather & Scenarios -->
+        <section id="conditions" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-t-4 border-cyan-500">
+                <div class="text-center mb-10">
+                    <span class="text-6xl inline-block mb-4">⛈️</span>
+                    <h2 class="text-3xl font-bold text-white">Riding Scenarios</h2>
+                    <p class="text-gray-400">विभिन्न परिस्थितियों में सावधानी</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass-effect p-6 rounded-2xl border-l-4 border-blue-400">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-4xl text-blue-400">🌧️</span>
+                            <h3 class="text-xl font-bold text-white">बारिश (Rainy Day)</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• <b>Tires:</b> फिसलन बढ़ जाती है, ब्रेक धीरे लगाएं।</li>
+                            <li>• <b>Lines:</b> सड़क की सफेद लाइनों (Paints) पर टायर न चढ़ाएं।</li>
+                            <li>• <b>Visor:</b> हेलमेट का शीशा साफ़ रखें।</li>
+                        </ul>
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl border-l-4 border-indigo-400">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-4xl text-indigo-400">🌃</span>
+                            <h3 class="text-xl font-bold text-white">रात (Night Riding)</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• <b>Lights:</b> सामने वाले की आंखों में High Beam न मारें।</li>
+                            <li>• <b>Visibility:</b> रेडियम जैकेट या रिफ्लेक्टर पहनें।</li>
+                            <li>• <b>Animal Alert:</b> रात में जानवरों का ध्यान रखें।</li>
+                        </ul>
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl border-l-4 border-emerald-400">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-4xl text-emerald-400">⛰️</span>
+                            <h3 class="text-xl font-bold text-white">पहाड़ (Hills/Slopes)</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• <b>Climb:</b> चढ़ाई पर छोटी गियर (1st/2nd) रखें।</li>
+                            <li>• <b>Braking:</b> उतरते समय Engine Braking का इस्तेमाल करें।</li>
+                            <li>• <b>Turns:</b> अंधे मोड़ों पर हॉर्न जरूर बजाएं।</li>
+                        </ul>
+                    </div>
+                    <div class="glass-effect p-6 rounded-2xl border-l-4 border-pink-400">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-4xl text-pink-400">👥</span>
+                            <h3 class="text-xl font-bold text-white">सवारी के साथ (Pillion)</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li>• <b>Balance:</b> सवारी को डगमगाने न दें।</li>
+                            <li>• <b>Braking:</b> वजन बढ़ने से ब्रेक लगाने की दूरी बढ़ जाती है।</li>
+                            <li>• <b>Footrest:</b> सवारी के पैर सही जगह हों।</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Drills -->
+        <section id="drills" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-t-4 border-purple-500">
+                <div class="text-center mb-10">
+                    <span class="text-6xl inline-block mb-4">🌀</span>
+                    <h2 class="text-3xl font-bold text-white">Practice Drills</h2>
+                    <p class="text-gray-400">मैदान में इन अभ्यासों को करें</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-black/30 p-6 rounded-2xl border border-purple-500/20">
+                        <h4 class="text-lg font-bold text-purple-300 mb-3">1. The Figure-8 (8 का आकार)</h4>
+                        <p class="text-sm text-gray-400 mb-4">इससे टर्निंग और बैलेंस बहुत अच्छा होता है। धीमे और बिना
+                            पैर नीचे रखे कोशिश करें।</p>
+                        <div
+                            class="aspect-video bg-gray-900 rounded-xl flex items-center justify-center border border-gray-800 relative overflow-hidden">
+                            <div class="absolute w-24 h-24 border-4 border-purple-500/20 rounded-full -translate-x-8">
+                            </div>
+                            <div class="absolute w-24 h-24 border-4 border-purple-500/20 rounded-full translate-x-8">
+                            </div>
+                            <span class="text-5xl opacity-50 relative z-10">♾️</span>
+                        </div>
+                    </div>
+                    <div class="bg-black/30 p-6 rounded-2xl border border-purple-500/20">
+                        <h4 class="text-lg font-bold text-purple-300 mb-3">2. Slalom (सांप जैसा मोड़)</h4>
+                        <p class="text-sm text-gray-400 mb-4">पत्थर या बोतलें रखकर उनके बीच से ज़िग-ज़ैग धीरे-धीरे
+                            निकलें।</p>
+                        <div
+                            class="aspect-video bg-gray-900 rounded-xl flex items-center justify-center border border-gray-800">
+                            <div class="flex gap-4">
+                                <span class="w-4 h-4 bg-orange-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-orange-500 rounded-full"></span>
+                                <span class="w-4 h-4 bg-orange-500 rounded-full"></span>
+                            </div>
+                            <span class="absolute text-3xl opacity-20">〰️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Corner: Hero Models -->
+        <section id="tech-corner" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-t-4 border-cyan-500">
+                <div class="text-center mb-10">
+                    <span class="text-6xl inline-block mb-4">⚙️</span>
+                    <h2 class="text-3xl font-bold text-white">Tech Corner</h2>
+                    <p class="text-gray-400">Hero के लोकप्रिय मॉडल्स</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-800">
+                                <th class="py-4 px-4 text-cyan-400">Model</th>
+                                <th class="py-4 px-4 text-cyan-400">Engine</th>
+                                <th class="py-4 px-4 text-cyan-400">Power</th>
+                                <th class="py-4 px-4 text-cyan-400">Target</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-300">
+                            <tr class="border-b border-gray-800/50 hover:bg-white/5 transition">
+                                <td class="py-4 px-4 font-bold text-white">Splendor+</td>
+                                <td class="py-4 px-4">97.2 cc</td>
+                                <td class="py-4 px-4">7.91 HP</td>
+                                <td class="py-4 px-4">City Economy</td>
+                            </tr>
+                            <tr class="border-b border-gray-800/50 hover:bg-white/5 transition">
+                                <td class="py-4 px-4 font-bold text-white">Glamour</td>
+                                <td class="py-4 px-4">124.7 cc</td>
+                                <td class="py-4 px-4">10.7 HP</td>
+                                <td class="py-4 px-4">Style + Power</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="py-4 px-4 font-bold text-white">Xtreme 160R</td>
+                                <td class="py-4 px-4">163 cc</td>
+                                <td class="py-4 px-4">15 HP</td>
+                                <td class="py-4 px-4">Sports Performance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pro Tips & Master Formula -->
+        <section id="pro" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-2 border-blue-500/50 glow-blue">
+                <div class="text-center mb-8">
+                    <span class="text-6xl float-animation inline-block">🏆</span>
+                    <h2 class="text-3xl font-bold mt-4 text-white">Pro Tips & Master Formula</h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-10">
+                    <div class="glass-effect rounded-2xl p-5">
+                        <h3 class="font-bold text-yellow-300 mb-2">Engine Braking</h3>
+                        <p class="text-gray-400 text-sm">सिर्फ ब्रेक ही नहीं, गियर कम करके भी गाड़ी धीमी करें। इससे ब्रेक
+                            गर्म नहीं होते।</p>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-5">
+                        <h3 class="font-bold text-green-300 mb-2">Counter Steering</h3>
+                        <p class="text-gray-400 text-sm">ज़्यादा स्पीड पर मोड़ने के लिए हैंडल को हल्का धक्का दें।</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gradient-to-r from-green-600 to-emerald-700 rounded-2xl p-6 text-center">
+                    <h3 class="text-2xl font-bold text-white mb-4">✅ Master Formula</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-3 text-lg font-bold">
+                        <span class="bg-white/20 px-3 py-1 rounded">Race 0% 🔽</span>
+                        <span>→</span>
+                        <span class="bg-white/20 px-3 py-1 rounded">Clutch 100% 🤚</span>
+                        <span>→</span>
+                        <span class="bg-white/20 px-3 py-1 rounded">Gear Change ⚙️</span>
+                        <span>→</span>
+                        <span class="bg-white/20 px-3 py-1 rounded">Clutch slow 🔼</span>
+                        <span>→</span>
+                        <span class="bg-white/20 px-3 py-1 rounded">Race 20% 🚀</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Quiz -->
+        <section id="quiz" class="mb-12">
+            <div class="card-dark rounded-3xl p-8 border-l-4 border-emerald-500 glow-green">
+                <div class="text-center mb-10">
+                    <span class="text-6xl inline-block mb-4">📝</span>
+                    <h2 class="text-3xl font-bold text-white">Knowledge Quiz</h2>
+                    <p class="text-gray-400">अपनी जानकारी टेस्ट करें</p>
+                </div>
+
+                <div id="quiz-container" class="space-y-6">
+                    <div id="question-box"
+                        class="bg-black/40 p-8 rounded-2xl border border-white/5 min-h-[200px] flex flex-col justify-center">
+                        <p id="question-text" class="text-xl font-bold text-white mb-6"></p>
+                        <div id="options-grid" class="grid md:grid-cols-2 gap-4">
+                            <!-- Options will be injected here -->
+                        </div>
+                    </div>
+                    <div id="quiz-status" class="flex justify-between items-center text-sm text-gray-500">
+                        <span id="question-num">Question 1 of 5</span>
+                        <span id="quiz-score">Score: 0</span>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden text-center py-10">
+                    <span class="text-6xl mb-6 block animate-bounce">🏆</span>
+                    <h3 class="text-3xl font-bold text-white mb-2">Quiz Completed!</h3>
+                    <p id="final-score" class="text-xl text-green-400 font-bold mb-6"></p>
+                    <button onclick="resetQuiz()"
+                        class="bg-emerald-600 hover:bg-emerald-500 px-8 py-3 rounded-xl font-bold transition">Try Again
+                        🔄</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Progress Tracker -->
+        <section class="mb-12">
+            <div class="card-dark rounded-3xl p-8">
+                <div class="text-center mb-8">
+                    <span class="text-5xl">📈</span>
+                    <h2 class="text-2xl font-bold mt-4 text-white">Practice Progress Tracker</h2>
+                    <p class="text-gray-400 mt-2">अपनी progress track करें</p>
+                </div>
+
+                <div class="space-y-4">
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-green-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">बाइक पर बैठना और balance करना</p>
+                            <p class="text-gray-500 text-sm">Stand हटाकर दोनों पैर जमीन पर</p>
+                        </div>
+                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">Level 1</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-green-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Engine start करना (Neutral में)</p>
+                            <p class="text-gray-500 text-sm">Self start और kick दोनों try करें</p>
+                        </div>
+                        <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm">Level 1</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-yellow-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Biting Point ढूंढना</p>
+                            <p class="text-gray-500 text-sm">बिना Race के सिर्फ Clutch play</p>
+                        </div>
+                        <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Level 2</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-yellow-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">1st gear में सीधा चलाना</p>
+                            <p class="text-gray-500 text-sm">10-15 km/h में balance बनाना</p>
+                        </div>
+                        <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Level 2</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-orange-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Gear shifting (1→2→3→4)</p>
+                            <p class="text-gray-500 text-sm">Smooth transitions without jerks</p>
+                        </div>
+                        <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">Level 3</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-orange-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Smooth braking और रुकना</p>
+                            <p class="text-gray-500 text-sm">बिना engine बंद हुए रुकना</p>
+                        </div>
+                        <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-sm">Level 3</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-red-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Turns लेना (Left & Right)</p>
+                            <p class="text-gray-500 text-sm">Slow speed पर turning practice</p>
+                        </div>
+                        <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm">Level 4</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-purple-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">U-Turn लेना</p>
+                            <p class="text-gray-500 text-sm">Tight space में turn</p>
+                        </div>
+                        <span class="bg-purple-500/20 text-purple-400 px-3 py-1 rounded-full text-sm">Level 5</span>
+                    </label>
+
+                    <label
+                        class="flex items-center gap-4 bg-gray-800/50 rounded-xl p-4 cursor-pointer hover:bg-gray-800 transition">
+                        <input type="checkbox" class="w-6 h-6 accent-blue-500 rounded">
+                        <div class="flex-1">
+                            <p class="text-white font-medium">Traffic में Riding</p>
+                            <p class="text-gray-500 text-sm">Real road conditions में practice</p>
+                        </div>
+                        <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full text-sm">Pro!</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Motivation Section -->
+        <section class="mb-12">
+            <div
+                class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-3xl p-8 text-center border border-blue-500/30">
+                <div class="text-6xl mb-6">💪</div>
+                <h2 class="text-3xl font-bold text-white mb-4">हौसला रखें!</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    शुरुआत में गाड़ी <strong class="text-yellow-300">एक-दो बार बंद होगी</strong>, घबराना मत।<br>
+                    <strong class="text-green-300">हर Expert कभी Beginner था!</strong>
+                </p>
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <div class="bg-white/10 rounded-xl px-6 py-4">
+                        <p class="text-3xl font-bold text-green-400">5-7 दिन</p>
+                        <p class="text-gray-400 text-sm">Basic सीखने में</p>
+                    </div>
+                    <div class="bg-white/10 rounded-xl px-6 py-4">
+                        <p class="text-3xl font-bold text-yellow-400">2-3 हफ्ते</p>
+                        <p class="text-gray-400 text-sm">Confident होने में</p>
+                    </div>
+                    <div class="bg-white/10 rounded-xl px-6 py-4">
+                        <p class="text-3xl font-bold text-blue-400">1-2 महीने</p>
+                        <p class="text-gray-400 text-sm">Traffic ready</p>
+                    </div>
+                </div>
+                <p class="mt-8 text-2xl">
+                    प्रैक्टिस करते रहिये, आप <span class="text-green-400 font-bold">बहुत जल्द सीख जाएंगे!</span> 🎉🏍️
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Print Button -->
+    <button id="print-btn" onclick="window.print()"
+        class="bg-blue-600 hover:bg-blue-500 text-white p-4 rounded-full shadow-2xl transition transform hover:scale-110 active:scale-95 group">
+        <span class="text-2xl">🖨️</span>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-500 whitespace-nowrap ml-2 font-bold">Print
+            Guide</span>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-gray-800 py-12">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="text-4xl mb-4">🏍️</div>
+            <p class="text-gray-400 text-lg">Hero Bike Riding Guide - Zero to Pro</p>
+            <p class="text-gray-600 text-sm mt-2">Safe Riding, Happy Riding! ✌️</p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                <a href="#intro" class="hover:text-white transition">Start Learning</a>
+                <a href="#safety-rules" class="hover:text-white transition">Safety Rules</a>
+                <a href="#simulator" class="hover:text-white transition">Simulator</a>
+                <a href="#quiz" class="hover:text-white transition">Take Quiz</a>
+            </div>
+
+            <div
+                class="mt-10 pt-8 border-t border-gray-800/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div class="flex gap-4">
+                    <span>⛑️ Always wear helmet</span>
+                    <span>📜 Follow traffic rules</span>
+                </div>
+                <p>© 2026 Interactive Bike Guide. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function updateThrottle(value) {
+            document.getElementById('throttleValue').textContent = value;
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.step-card, section > div').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            observer.observe(card);
+        });
+
+        // Save checkbox state to localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+            const key = 'bike-progress-' + index;
+            checkbox.checked = localStorage.getItem(key) === 'true';
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(key, checkbox.checked);
+            });
+        });
+
+        // Simulator Logic & Audio
+        let engineOn = false;
+        let currentGear = 0;
+        let speed = 0;
+        let targetSpeed = 0;
+        let audioContext, oscillator, gainNode;
+
+        const clutchInput = document.getElementById('sim-clutch');
+        const throttleInput = document.getElementById('sim-throttle');
+        const needle = document.getElementById('needle');
+        const speedText = document.getElementById('speed-text');
+        const gearDisplay = document.getElementById('gear-display');
+        const statusText = document.getElementById('status-text');
+        const startBtn = document.getElementById('start-btn');
+        const stallWarning = document.getElementById('stall-warning');
+        const hintBox = document.getElementById('sim-hint-box');
+        const hintText = document.getElementById('sim-hint-text');
+
+        // Popup Logic
+        function showPopup(title, message, icon = "🔔") {
+            const container = document.getElementById('popup-container');
+            if (!container) return;
+            const popup = document.createElement('div');
+            popup.className = 'popup show';
+            popup.innerHTML = `
+                <div class="popup-icon">${icon}</div>
+                <div class="popup-content">
+                    <h4>${title}</h4>
+                    <p>${message}</p>
+                </div>
+            `;
+            container.appendChild(popup);
+
+            setTimeout(() => {
+                popup.classList.remove('show');
+                setTimeout(() => popup.remove(), 500);
+            }, 3000);
+        }
+
+        // Expanded Audio Engine (UI Sounds)
+        function playUISound(type) {
+            if (!audioContext) initAudio();
+            if (audioContext.state === 'suspended') audioContext.resume();
+
+            const osc = audioContext.createOscillator();
+            const gn = audioContext.createGain();
+
+            if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioContext.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(100, audioContext.currentTime + 0.1);
+                gn.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gn.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            } else if (type === 'success') {
+                osc.type = 'square';
+                osc.frequency.setValueAtTime(400, audioContext.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, audioContext.currentTime + 0.2);
+                gn.gain.setValueAtTime(0.05, audioContext.currentTime);
+                gn.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+            } else if (type === 'error') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(150, audioContext.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(50, audioContext.currentTime + 0.3);
+                gn.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gn.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+            }
+
+            osc.connect(gn);
+            gn.connect(audioContext.destination);
+            osc.start();
+            osc.stop(audioContext.currentTime + 0.3);
+        }
+
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                oscillator = audioContext.createOscillator();
+                gainNode = audioContext.createGain();
+
+                oscillator.type = 'sawtooth';
+                oscillator.frequency.setValueAtTime(50, audioContext.currentTime);
+
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                oscillator.start();
+            }
+        }
+
+        function updateAudio(throttle) {
+            if (engineOn && audioContext) {
+                const freq = 50 + (throttle * 1.5) + (speed * 0.5);
+                const vol = 0.05 + (throttle * 0.001);
+
+                oscillator.frequency.setTargetAtTime(freq, audioContext.currentTime, 0.1);
+                gainNode.gain.setTargetAtTime(vol, audioContext.currentTime, 0.1);
+            } else if (audioContext) {
+                gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.1);
+            }
+        }
+
+        function showHint(msg) {
+            if (hintText.textContent !== msg) {
+                hintText.textContent = msg;
+                hintBox.classList.add('show');
+            }
+        }
+
+        function toggleEngine() {
+            initAudio();
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+
+            if (!engineOn) {
+                if (currentGear === 0 || clutchInput.value > 85) {
+                    engineOn = true;
+                    statusText.textContent = 'RUNNING';
+                    statusText.className = 'text-xl font-bold text-green-400';
+                    startBtn.textContent = 'STOP ENGINE 🛑';
+                    startBtn.className = 'w-full bg-gray-700 py-4 rounded-2xl font-extrabold transition';
+                    stallWarning.classList.add('hidden');
+                    showPopup("Broom Broom!", "इंजन स्टार्ट हो गया", "🏍️");
+                    playUISound('success');
+                } else {
+                    showPopup("Error", "Neutral (N) में करें या Clutch दबाएं!", "⚠️");
+                    playUISound('error');
+                    alert('Neutral (N) में करें या Clutch पूरा दबाएं!');
+                }
+            } else {
+                engineStop();
+            }
+        }
+
+        function engineStop() {
+            engineOn = false;
+            statusText.textContent = 'OFF';
+            statusText.className = 'text-xl font-bold text-gray-400';
+            startBtn.textContent = 'START ENGINE 🔘';
+            startBtn.className = 'w-full bg-red-600 hover:bg-red-500 py-4 rounded-2xl font-extrabold shadow-lg shadow-red-900/50 transition';
+            targetSpeed = 0;
+            updateAudio(0);
+        }
+
+        function changeGearSim(dir) {
+            if (dir === 'up' && currentGear < 4) currentGear++;
+            if (dir === 'down' && currentGear > 0) currentGear--;
+            gearDisplay.textContent = currentGear === 0 ? 'N' : currentGear;
+        }
+
+        // Animation Loop (60 FPS)
+        function simLoop() {
+            if (!document.getElementById('sim-clutch')) return;
+
+            const clutch = parseInt(clutchInput.value);
+            const throttle = parseInt(throttleInput.value);
+            document.getElementById('clutch-val').textContent = clutch + '%';
+            document.getElementById('throttle-val').textContent = throttle + '%';
+
+            if (engineOn) {
+                updateAudio(throttle);
+
+                if (currentGear === 0) {
+                    showHint("Gear 1 डालें और चलना शुरू करें");
+                    targetSpeed = 0;
+                } else {
+                    let powerMultiplier = 0;
+                    if (clutch < 55) {
+                        powerMultiplier = (55 - clutch) / 55;
+                        showHint("धीरे-धीरे क्लच छोड़ें...");
+                    }
+
+                    // Stall Detection
+                    if (clutch < 45 && throttle < 15 && speed < 5) {
+                        engineStop();
+                        showPopup("STALLED!", "क्लच बहुत जल्दी छोड़ा!", "❌");
+                        playUISound('error');
+                        stallWarning.classList.remove('hidden');
+                        document.querySelector('.sim-container').classList.add('vibration');
+                        setTimeout(() => document.querySelector('.sim-container').classList.remove('vibration'), 500);
+                        return;
+                    }
+
+                    targetSpeed = (throttle * 0.8 * currentGear) * powerMultiplier;
+                }
+                speed += (targetSpeed - speed) * 0.05;
+            } else {
+                speed *= 0.98;
+            }
+
+            if (speed < 0.1) speed = 0;
+            const rotation = -90 + (speed * 2);
+            needle.style.transform = `translateX(-50%) rotate(${rotation}deg)`;
+            speedText.textContent = Math.round(speed);
+
+            requestAnimationFrame(simLoop);
+        }
+
+        requestAnimationFrame(simLoop);
+
+        function showPartInfo(title, desc) {
+            const box = document.getElementById('part-detail-box');
+            document.getElementById('part-title').textContent = title;
+            document.getElementById('part-desc').textContent = desc;
+            box.classList.remove('hidden');
+            box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            showPopup("Info", title, "🔍");
+            playUISound('click');
+        }
+
+
+
+        // Quiz Logic
+
+        // Quiz Logic
+        const quizData = [
+            {
+                q: "बाइक स्टार्ट करते समय गियर किसमें होना चाहिए?",
+                a: ["1st Gear", "Neutral (N)", "4th Gear", "किसी भी गियर में"],
+                correct: 1
+            },
+            {
+                q: "ब्रेक मारते समय पहले क्या छोड़ना चाहिए?",
+                a: ["Clutch", "Race (Accelerator)", "Handlebar", "दोनों पैर"],
+                correct: 1
+            },
+            {
+                q: "Biting Point का क्या मतलब है?",
+                a: ["जहाँ बाइक रुकती है", "जहाँ टायर फिसलते हैं", "जहाँ बाइक आगे बढ़ना शुरू करती है", "जहाँ पेट्रोल खत्म होता है"],
+                correct: 2
+            },
+            {
+                q: "सामने का ब्रेक (Front Brake) किस हाथ की तरफ होता है?",
+                a: ["बाएं हाथ", "दाहिने हाथ", "होता ही नहीं है", "पैर में होता है"],
+                correct: 1
+            },
+            {
+                q: "सड़क पर लाल बत्ती (Red Light) का क्या मतलब है?",
+                a: ["तेज़ चलें", "ध्यान से मुड़ें", "रुकें (Stop)", "हॉर्न बजाएं"],
+                correct: 2
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const qBox = document.getElementById('question-box');
+            const questionText = document.getElementById('question-text');
+            const optionsGrid = document.getElementById('options-grid');
+            const qNum = document.getElementById('question-num');
+            const scoreDisplay = document.getElementById('quiz-score');
+
+            const q = quizData[currentQuestion];
+            questionText.textContent = q.q;
+            qNum.textContent = `Question ${currentQuestion + 1} of ${quizData.length}`;
+            scoreDisplay.textContent = `Score: ${score}`;
+
+            optionsGrid.innerHTML = '';
+            q.a.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'bg-gray-800 hover:bg-gray-700 p-4 rounded-xl border border-gray-600 text-left transition transform active:scale-95';
+                btn.textContent = opt;
+                btn.onclick = () => checkAnswer(index);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(idx) {
+            if (idx === quizData[currentQuestion].correct) {
+                score++;
+            }
+
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').textContent = `Your Score: ${score} / ${quizData.length}`;
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+</body>
+
+</html>
